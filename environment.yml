@@ -1,0 +1,10 @@
+name: python-template
+channels:
+  - anaconda
+  - defaults
+dependencies:
+  - ca-certificates=2020.10.14
+  - pip=20.3.3
+  - python=3.7.9
+  - pip:
+    - -r file:dev-requirements.txt

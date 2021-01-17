@@ -1,0 +1,1 @@
+Data Science experimentation notebooks go here. There should be an accompanying "ds-requirements.txt" file or something similar to maintain an isolated environment for such notebooks.

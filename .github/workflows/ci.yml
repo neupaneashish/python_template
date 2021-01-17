@@ -1,0 +1,46 @@
+name: python-template-ci
+
+on: [push]
+
+env:
+  CI: true
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+        python-version: [3.7, 3.9]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: s-weigand/setup-conda@v1
+      with:
+        activate-conda: true
+    - run: conda --version
+    - run: which python
+    - name: Run setup file to package code
+      run: |
+        python -m pip install --upgrade setuptools wheel
+        python setup.py sdist bdist_wheel
+    - name: Install packages
+      run: |
+        pip install -r dev-requirements.txt
+        pip install -e .
+    - name: Clean up formatting with black
+      run: black python_template    
+    - name: Lint code 
+      run: pylint python_template
+    - name: Run unit tests
+      run: pytest test/unit
+    - name: Upload pytest test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
