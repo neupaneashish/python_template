@@ -11,7 +11,7 @@ Change project name in the following locations:
 And check LICENSE
 
 # Directory Structure (including untracked files)
-![Dir Structure](docs/image.jpg?raw=true)
+![Dir Structure](docs/directory_structure.jpg?raw=true)
 
 Untracked files/folders on root level:
 |- data : data stored here
