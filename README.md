@@ -11,11 +11,11 @@ Change project name in the following locations:
 And check LICENSE
 
 # Directory Structure (including untracked files)
-![Dir Structure](docs/directory_structure.jpg?raw=true)
+![Dir Structure](docs/directory_structure.jpg)
 
-Untracked files/folders on root level:
-|- data : data stored here
-|- models: models here
+Untracked files/folders on root level:  
+|- data : data stored here  
+|- models: models here  
 
 # Dataset
 In directory data
