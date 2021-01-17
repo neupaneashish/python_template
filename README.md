@@ -11,7 +11,7 @@ Change project name in the following locations:
 And check LICENSE
 
 # Directory Structure (including untracked files)
-![alt text](https://github.com/neupaneashish/project_template/blob/main/docs/image.jpg?raw=true)
+![Dir Structure](docs/image.jpg?raw=true)
 
 Untracked files/folders on root level:
 |- data : data stored here
